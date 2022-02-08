@@ -32,10 +32,13 @@ const deleteBotLogs = async(message) => {
             msg.delete() 
         }
     })
-}
+};
 
 const replyToMessage = async(message) => {
-    if (message.type !== 'REPLY') { return };
+    if (message.type !== 'REPLY') {
+        message.channel.send('Command must be used within a Reply to another message');
+        return;
+    }
 
     const replyMessage = await message.channel.messages.fetch(message.reference.messageId);
 
@@ -50,7 +53,7 @@ const replyToMessage = async(message) => {
     }
 
     replyMessage.reply(memeMessage)
-}
+};
 
 module.exports = {
     sendReactionImage,
@@ -58,4 +61,4 @@ module.exports = {
     deleteChatLog,
     deleteBotLogs,
     replyToMessage
-}
+};
