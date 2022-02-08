@@ -34,9 +34,28 @@ const deleteBotLogs = async(message) => {
     })
 }
 
+const replyToMessage = async(message) => {
+    if (message.type !== 'REPLY') { return };
+
+    const replyMessage = await message.channel.messages.fetch(message.reference.messageId);
+
+    let memeMessage = '';
+
+    for (let i = 0; i < replyMessage.content.length; i++) {
+        i % 2 === 0 ? (
+            memeMessage += replyMessage.content[i].toLowerCase()
+        ) : (
+            memeMessage += replyMessage.content[i].toUpperCase()
+        )
+    }
+
+    replyMessage.reply(memeMessage)
+}
+
 module.exports = {
     sendReactionImage,
     getCommandList,
     deleteChatLog,
-    deleteBotLogs
+    deleteBotLogs,
+    replyToMessage
 }

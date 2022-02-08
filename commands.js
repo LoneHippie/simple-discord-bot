@@ -16,6 +16,10 @@ const commands = {
     cleanup: {
         command: `${prefix} cleanup`,
         description: 'Delete all bot messages and user commands for funbot from the current channel'
+    },
+    reply: {
+        command: `${prefix} reply`,
+        description: 'Give a 200 IQ response to any message'
     }
 }
 

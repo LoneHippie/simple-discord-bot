@@ -12,7 +12,8 @@ const { commands } = require('./commands');
 const { 
     sendReactionImage, 
     getCommandList, 
-    deleteBotLogs 
+    deleteBotLogs,
+    replyToMessage 
 } = require('./actions');
 
 client.on('ready', () => {
@@ -32,6 +33,9 @@ client.on('messageCreate', msg => {
             break;
         case msg.content === commands.ping.command:
             msg.reply('pong');
+            break;
+        case msg.content === commands.reply.command:
+            replyToMessage(msg);
             break;
         default:
             return;
