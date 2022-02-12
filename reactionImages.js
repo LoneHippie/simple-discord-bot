@@ -8,7 +8,6 @@ module.exports = reactions = [
     'https://imgur.com/Z1Su04Q',
     'https://imgur.com/fjJmmqP',
     'https://imgur.com/NA55nYO',
-    'https://imgur.com/zwFqCDO',
     'https://imgur.com/DLbEBVL',
     'https://imgur.com/6eUeTEf',
     'https://imgur.com/J6mBArh',
