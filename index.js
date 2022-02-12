@@ -32,7 +32,7 @@ client.on('messageCreate', msg => {
             replyToMessage(msg);
             break;
         case msg.content === commands.cleanup.command:
-            deleteBotLogs(msg);
+            deleteBotLogs(msg, client);
             break;
         case msg.content === commands.help.command:
             getCommandList(msg);

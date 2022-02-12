@@ -23,13 +23,13 @@ const deleteChatLog = async(message) => {
     }
 };
 
-const deleteBotLogs = async(message) => {
+const deleteBotLogs = async(message, client) => {
     const channel = message.channel;
     const messages = await channel.messages.fetch({limit: 100});
 
     messages.forEach(msg => {
-        if (msg.author.bot || msg.content.startsWith(prefix)) { 
-            msg.delete() 
+        if (msg.content.startsWith(prefix) || msg.author.id === client.user.id) { 
+            msg.delete()
         }
     })
 };
